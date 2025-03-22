@@ -10,4 +10,9 @@ class FinApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void helloWorldTest() {
+	    System.out.println("Hello, World!");
+	}
+
 }
