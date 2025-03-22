@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-    @GetMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot! hi this is a test this is shree";
-    }
+    // @GetMapping("/")
+    // public String index() {
+    //     return "Greetings from Spring Boot! hi this is a test this is shree";
+    // }
 }
