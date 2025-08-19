@@ -1,0 +1,1 @@
+ALTER TABLE pots ALTER COLUMN id SET DEFAULT nextval('pots_id_seq');

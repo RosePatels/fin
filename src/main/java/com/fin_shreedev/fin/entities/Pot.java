@@ -57,3 +57,7 @@ public class Pot {
     }
 
 }
+
+// -- 1	Savings	159.00	2000.00
+// -- 2	Concert Ticket	110.00	150.00
+// -- 3	Gift	40.00	60.00

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class PotController {
     @Autowired
     private PotRepository potRepository;
     
-    @GetMapping
+    @GetMapping("/list")
     public List<Pot> getAllPots() {
         return potRepository.findAll();
     }
@@ -33,13 +34,17 @@ public class PotController {
         return Optional.ofNullable(potRepository.findById(id).orElse(null));
     }
 
-    @PostMapping
-    public Pot createPot(Pot pot) {
+    @PostMapping("/create")
+    public Pot createPot(@RequestBody Pot pot) {
+        Pot newPot = new Pot();
+        newPot.setPotName(pot.getPotName());
+        newPot.setTotalSaved(pot.getTotalSaved());
+        newPot.setTargetAmount(pot.getTargetAmount());
         return potRepository.save(pot);
     }
 
     @PutMapping("/{id}")
-    public Pot updatePot(@PathVariable Long id, Pot potRequest) {
+    public Pot updatePot(@PathVariable Long id, @RequestBody Pot potRequest) {
         // if (potRepository.existsById(id)) {
             // pot.setId(id);
             Pot pot = potRepository.findById(id).orElseThrow(() -> new RuntimeException("Pot not found"));
