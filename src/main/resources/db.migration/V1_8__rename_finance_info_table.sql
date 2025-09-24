@@ -1,0 +1,1 @@
+ALTER TABLE finance_info RENAME TO finance_summary;
